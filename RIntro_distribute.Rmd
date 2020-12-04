@@ -1,0 +1,894 @@
+---
+title: "R的基础介绍"
+author: "陈炎"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+*工作原理*
+在下面的编辑器中，你应该输入R代码来解决练习。当你点击 "Run Current Chunk "按钮时，每一行代码都会被R解释和执行，你的R代码的输出显示在控制台中。
+
+R利用'#'符号来添加注释，这样你和其他人就可以理解R代码的内容。就像Twitter一样! 注释不会作为R代码运行，所以不会影响你的结果。例如，编辑器中的计算 3 + 4就是一个注释。
+
+你也可以直接在控制台中执行R命令。这是一个实验R代码的好方法，因为你的提交不会被检查是否正确。
+
+```{r 1}
+# 计算 3 + 4
+
+
+# 计算 6 + 12
+
+
+```
+*R的算术*
+在其最基本的形式下，R可以作为一个简单的计算器使用。考虑以下算术运算符。
+
+加法： +
+减法：-
+乘法： *
+除法： /
+指数：^
+余数：%%
+最后两个可能需要解释一下。
+^运算符将左边的数字提高到右边的数字的幂，例如3^2是9。
+余数 返回左边的数字除以右边的数字的余数，例如 5 modulo 3 或 5 %% 3 是 2。
+掌握了这些知识，请按照提示完成练习。
+
+```{r 2}
+# 加法
+
+
+# 减法
+
+
+# 乘法
+
+
+ # 除法
+
+
+# 指数
+
+
+# 余数
+
+
+```
+*变量赋值*
+(统计)编程中的一个基本概念叫做变量。
+
+变量允许你在R中存储一个值（例如4）或一个对象（例如一个函数描述），然后你可以在以后使用这个变量的名称来方便地访问这个变量中存储的值或对象。
+
+你可以使用命令将一个值4赋给变量my_var
+my_var <- 4
+        
+```{r 3}
+# 将数值42分配给x
+x <- 
+  
+# 输出变量x的值
+x
+
+```
+*变量赋值(2)*
+假设你有一个水果篮，里面有五个苹果。作为训练中的数据分析师，你想把苹果的数量存储在一个名为my_apples的变量中。
+    
+```{r 4}
+# 将值5分配给变量my_apples。
+my_apples <- 
+
+# 输出变量my_apples的值。
+my_apples
+```
+*变量赋值(3)*
+每个美味的水果篮子都需要橙子，所以你决定添加6个橙子。作为一个数据分析师，你的反射是立即创建变量my_oranges，并给它赋值6。接下来，你想计算一下你总共有多少个水果。由于你已经给这些值赋予了有意义的名称，现在你可以用一种清晰的方式来编码。
+    
+```{r 5}
+# 给变量my_apples和my_oranges赋值。
+my_apples <- 
+my_oranges <- 
+
+# 将这两个变量加在一起
+my_fruit <- 
+
+# 创建变量my_fruit
+my_fruit
+```
+*R中的基本数据类型*
+R可以使用许多数据类型。一些最基本的入门类型是。
+
+像4. 5这样的小数点被称为数字。
+像4这样的整数叫做整数。整数也是数字。
+布尔值（TRUE或FALSE）被称为逻辑值。
+文本（或字符串）值称为字符。
+
+请注意，编辑器中的引号表示 "一些文本 "是一个字符串。
+
+```{r 7}
+# 把my_numeric改为42。
+my_numeric <- 
+
+# 把my_character改成 "universe"
+my_character <- 
+
+# 将my_logical改为FALSE。
+my_logical <- 
+
+```
+
+*那是什么数据类型？*
+你是否还记得，当你把5+"6"加起来的时候，由于数据类型不匹配而出现了错误？你可以通过事先检查变量的数据类型来避免这种尴尬的情况。你可以通过class()函数来实现，如编辑器中的代码所示。
+    
+```{r 8}
+# 声明不同类型的变量
+my_numeric <- 
+my_character <- 
+my_logical <- 
+
+# 检查my_numeric的数据类型
+class(my_numeric)
+
+# 检查my_character的数据类型
+class()
+
+# 检查my_logical的数据类型
+
+```
+*创建一个向量(Vector)*
+本章我们将学习Vector。
+向量(Vector)是一维数组(Array)，可以存放数值数据、字符数据或逻辑数据。换句话说，向量(Vector)是一种基础的存储数据的工具。
+在R中，你用组合函数c()创建一个向量(Vector)。你把向量(Vector)元素用逗号隔开放在括号之间。例如
+
+numeric_vector <- c(1, 2, 3)
+character_vector <- c("a", "b", "c")
+
+一旦你在R中创建了这些向量，你就可以用它们来进行计算。
+
+```{r 10}
+numeric_vector <- c(1, 10, 49)
+character_vector <- c("a", "b", "c")
+
+# 完成boolean_vector的代码
+boolean_vector <- c()
+
+```
+
+*创建一个向量Vector (2)*
+
+假设我们在股市中投资了两种股票，然后记录每天的盈利与亏损
+
+对于股票A：
+
+周一你盈利￥140
+周二你损失了￥50
+周三你盈利了￥20
+周四你损失了120
+周五你盈利了￥240
+
+对于股票B:
+
+周一你损失了￥24
+周二你损失了￥50
+周三你盈利了￥100
+周四你损失了￥350
+周五你盈利了￥10
+
+你只有这两只股票。如果要在R中进行分析，首先你需要创建两个变量（A_vector and B_vector）来记录这些盈亏。
+
+```{r 11}
+# 周一到周五股票A的记录
+A_vector <- c()
+
+# 周一到周五股票B的记录
+B_vector <- c()
+```
+
+*向量计算*
+
+如果你在R中对两个向量求和，它对每个元素进行分别求和。例如，下面的三个语句是完全相等的。
+
+c(1, 2, 3) + c(4, 5, 6)
+c(1 + 4, 2 + 5, 3 + 6)
+c(5, 7, 9)
+
+```{r 14}
+A_vector <- c(1, 2, 3)
+B_vector <- c(4, 5, 6)
+
+# Take the sum of A_vector and B_vector
+total_vector <- 
+  
+# Print out total_vector
+total_vector
+```
+
+用类似的方式吗，我们可以对每天股票A和B的盈亏进行求和
+
+```{r 15}
+# 周一到周五股票A的记录
+A_vector <- c(140, -50, 20, -120, 240)
+# 周一到周五股票B的记录
+B_vector <- c(24, -50, 100, -350, 10)
+# 创建total_daily 来计算盈亏
+total_daily <- 
+total_daily
+```
+
+如果我们想计算针对向量内部的数值进行计算，比如计算两只股票这周总盈亏？
+这时候我们需要借助sum()函数。比如计算股票A本周盈亏的话代码如下：
+
+total_A <- sum(A_vector)
+
+类似的常用函数后还平均数mean()，方差var(), 标准差sd()
+
+```{r 16}
+# A and B winnings from Monday to Friday:
+A_vector <- c(140, -50, 20, -120, 240)
+B_vector <- c(-24, -50, 100, -350, 10)
+
+# Total winnings with A
+total_A <- sum()
+
+# Total winnings with B
+total_B<- 
+
+# Total winnings overall
+total_week <- 
+
+# Print out total_week
+total_week
+```
+
+从结果看这周股票投资是亏损的，因此需要你想判断两只股票哪只表现相对较好。R里可以直接用逻辑符号来表两个数值，结果会以布尔变量的方式返回。
+
+
+```{r}
+# Check if you realized higher total gains in A than in B 
+
+```
+
+*向量选择*
+要选择一个向量的元素，你可以使用方括号。在方括号之间，您可以指明要选择的元素。例如，要选择向量的第一个元素，可以输入 A_vector[1]。要选择向量的第二个元素，输入A_vector[2]，等等。请注意，向量中的第一个元素的索引是1，而不是像许多其他编程语言中(python)的0
+
+要从一个矢量中选择多个元素，你可以在它的末尾加上方括号。你可以在方括号之间指明应该选择哪些元素。例如：假设你想选择一周中的第一天和第五天：在方括号之间使用向量c(1，5)。例如，下面的代码选择了A_vector的第一个和第五个元素。
+
+A_vector[c(1, 5)]
+
+用c(2，3，4)选择A_vector的多个元素不是很方便。很多统计学家天生是个懒人，所以他们创造了一种更简单的方法：c(2，3，4)可以简写为2:4，生成一个从2到4的所有自然数的向量。
+
+所以，寻找周中结果的另一种方法是A_vector[2:4]。注意，向量2:4是如何放在方括号之间，以选择2到4的元素。
+
+
+
+```{r}
+# A and B winnings from Monday to Friday:
+A_vector <- c(140, -50, 20, -120, 240)
+
+# Define a new variable based on a selection 3
+A_wednesday <- 
+A_wednesday
+# Define a new variable based on a selection 2,3,4
+A_midweek <- 
+A_midweek
+# Define a new variable based on a selection 2,3,4,5
+B_selection_vector <- 
+B_selection_vector
+```
+
+*通过条件来选择*
+
+R已知的（逻辑）比较运算符有。
+
+<  小于
+>  大于
+<= 小于或等于
+>= 大于或等于
+== 彼此相等
+!= 不相等
+
+正如在上一章中看到的，说明6 > 5返回TRUE。R的好处是，你也可以在向量上使用这些比较运算符。例如
+
+c(4, 5, 6) > 5
+[1] FALSE FALSE TRUE
+
+这条命令测试向量的每一个元素，如果比较运算符所说的条件是TRUE或FALSE。
+
+
+```{r}
+# A and B winnings from Monday to Friday:
+
+A_vector <- c(140, -50, 20, -120, 240)
+B_vector <- c(-24, -50, 100, -350, 10)
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+names(A_vector) <- days_vector
+names(B_vector) <- days_vector
+
+# Which days did you make money on A?
+selection_vector <- A_vector > 0
+  
+# Print out selection_vector
+selection_vector
+```
+
+*通过条件来选择2*
+通过对比会让你的数据分析生活变得更轻松。你可以简单地要求R只返回那些你实现了A的正收益的日子，而不是自己选择一个天数子集进行调查。在之前的练习中，你使用select_vector <- A_vector > 0 来寻找你有A正收益的日子。现在，你不仅想知道你赢的日子，还想知道你在这些日子里赢了多少钱。
+
+你可以通过在A_vector后面的方括号中加入select_vector来选择所需的元素。
+
+A_vector[selection_vector]
+
+当你传递一个方括号中的逻辑向量时，R知道该怎么做：它将只选择select_vector中对应TRUE的元素。
+
+```{r}
+# A and B winnings from Monday to Friday:
+A_vector <- c(140, -50, 20, -120, 240)
+B_vector <- c(-24, -50, 100, -350, 10)
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+names(A_vector) <- days_vector
+names(B_vector) <- days_vector
+
+# Which days did you make money on A?
+selection_vector <- 
+
+# Select from A_vector these days
+A_winning_days <- A_vector[]
+
+print(A_winning_days)
+```
+
+*高级选择*
+
+就像你为A做的一样，你也想知道那些你为B实现正收益的日子。
+
+```{r}
+# A and B winnings from Monday to Friday:
+A_vector <- c(140, -50, 20, -120, 240)
+B_vector <- c(-24, -50, 100, -350, 10)
+days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+names(A_vector) <- days_vector
+names(B_vector) <- days_vector
+
+# Which days did you make money on B?
+selection_vector <- 
+
+# Select from B_vector these days
+B_winning_days <- B_vector[]
+print(B_winning_days)
+```
+
+*什么是矩阵？*
+在R中，矩阵是同一数据类型（数字、字符或逻辑）元素的集合，按固定数量的行和列排列。由于你只处理行和列，所以矩阵被称为二维矩阵。
+
+你可以在R中使用matrix()函数构造一个矩阵。请看下面的例子。
+
+matrix(1:9, byrow = TRUE, nrow = 3)
+
+在矩阵()函数中。
+
+第一个参数是元素的集合，R将把它们排列成矩阵的行和列。这里，我们使用1:9，这是c(1，2，3，4，5，6，7，8，9)的快捷方式。
+参数byrow表示矩阵由行填充。如果我们希望矩阵由列填充，我们只需将byrow = FALSE。
+第三个参数nrow表示矩阵应该有三行。
+
+```{r}
+# 构建一个有3行的矩阵，其中包含1至9的数字。
+matrix(1:9, byrow = TRUE, nrow = 3)
+```
+
+*分析矩阵，你应该*
+现在是时候动手了。在下面的练习中，你将分析《星球大战》系列电影的票房数字。
+
+在编辑器中，定义了三个向量。每一个都代表了《星球大战》前三部电影的票房数字。每个向量的第一个元素表示国内的票房收入，第二个元素是指国际的票房。
+
+在这个练习中，你将把所有这些数字组合成一个向量。接下来，你将用这个向量建立一个矩阵。
+
+```{r}
+# 票房星球大战（单位百万）。
+new_hope <- c(460.998, 314.4)
+empire_strikes <- c(290.475, 247.900)
+return_jedi <- c(309.306, 165.8)
+
+# 创建box_office
+box_office <- c()
+
+# 构造star_wars_matrix
+star_wars_matrix <- matrix(, byrow = , nrow =)
+```
+
+*矩阵的命名*
+为了帮助你记住star_wars_matrix中存储的内容，你想为行添加电影名称。这不仅可以帮助您读取数据，而且对于从矩阵中选择某些元素也很有用。
+
+类似于向量，你可以为矩阵的行和列添加名称。
+
+rownames(my_matrix) <- row_names_vector
+colnames(my_matrix) <- col_names_vector
+
+我们先为你准备了两个向量：区域，和标题。你将需要这些向量来分别命名star_wars_matrix的列和行。
+
+```{r}
+# 票房星球大战（单位：百万）
+new_hope <- c(460.998, 314.4)
+empire_strikes <- c(290.475, 247.900)
+return_jedi <- c(309.306, 165.8)
+
+# 构建矩阵
+star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
+
+# Vectors区域和标题，用于命名。
+region <- c("Domestic", "International")
+titles <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
+
+# 用区域命名列
+colnames() <- 
+# 用标题命名行
+rownames() <- 
+# 输出star_wars_matrix（星际大战矩阵）
+star_wars_matrix
+```
+
+*计算全球票房*
+一部电影要想成为传奇，最重要的一点就是它的全球票房数字。
+
+要计算《星球大战》三部电影的总票房收入，就要取国内票房和国际票房的总和。
+
+在R中，函数rowSums()可以方便地计算矩阵中每一行的总和。这个函数创建了一个新的向量。
+
+rowSums(my_matrix)
+
+```{r}
+# 构造 star_wars_matrix
+box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
+star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
+                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), c("Domestic", "International")))
+
+# 计算全球票房数字
+worldwide_vector <- rowSums()
+```
+
+*增加全球票房一列*。
+在之前的练习中，你计算了包含三部《星球大战》电影的全球票房收入的向量，但是这个向量还不是star_wars_matrix的一部分。然而，这个向量还不是 star_wars_matrix 的一部分。
+
+你可以使用 cbind() 函数在矩阵中添加一列或多列，它可以将矩阵和/或向量按列合并在一起。例如
+
+big_matrix <- cbind(matrix1, matrix2, vector1 ...)
+
+```{r}
+# 构造 star_wars_matrix
+box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
+star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
+                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
+                                           c("Domestic", "International")))
+
+# 计算全球票房数字
+worldwide_vector <- rowSums()
+
+# 将新变量worldwide_vector作为一列绑定到star_wars_matrix。
+all_wars_matrix <- cbind(, ) 
+```
+
+*增加行*
+每一个cbind()都有一个rbind()。
+
+```{r}
+# 构造 star_wars_matrix2
+box_office <- c(474.5, 552.5, 310.7, 338.7, 380.3, 468.5)
+star_wars_matrix2 <- matrix(box_office, nrow = 3, byrow = TRUE,
+                           dimnames = list(c("The Phantom Menace", "Attack of the Clones", "Revenge of the Sith"), c("Domestic", "International")))
+
+# 将《星球大战》三部曲合并在一个矩阵中
+all_wars_matrix <- rbind(, )
+```
+
+*整个系列的总票房收入*。
+就像cbind()有rbind()一样，colSums()有rowSums()。你的R工作区已经包含了你在上一个练习中构建的all_wars_matrix，输入all_wars_matrix再看一下。现在让我们计算一下整个系列的总票房收入
+
+```{r}
+# all_wars_matrix在你的工作空间里是可用的
+all_wars_matrix
+
+# 国内和国际的总收入
+total_revenue_vector <- colSums()
+  
+# 输出total_revenue_vector
+total_revenue_vector
+```
+
+*矩阵元素的选择*
+与向量类似，您可以使用方括号[]从矩阵中选择一个或多个元素。向量只有一个维度，而矩阵有两个维度。因此，您应该使用逗号来分隔您要选择的行和列。例如
+
+my_matrix[1,2] 选择第一行和第二列的元素。
+my_matrix[1:3,2:4]的结果是矩阵的行1,2,3和列2,3,4的数据。
+
+如果你想选择某行或某列的所有元素，在逗号前后分别不需要数字。
+
+my_matrix[,1] 选择第一列的所有元素。
+my_matrix[1,]选择第一行的所有元素。
+
+带着这些新学的知识回到星球大战! 就像上一个练习一样，all_wars_matrix已经在你的工作区中可用。
+
+```{r}
+# all_wars_matrix在你的工作空间里是可用的。
+all_wars_matrix
+
+# 选择所有电影的国际收入
+international_all <- 
+  
+# 计算国际收入均值
+mean(international_all)
+  
+# 选择前两部电影的国际收入
+international_some <- all_wars_matrix[,]
+  
+# Average non-US revenue for first two movies
+mean()
+```
+
+*矩阵的数学运算*
+与你所学的向量类似，标准运算符如+、-、/、*等在R中的矩阵上以元素的方式工作。
+
+例如，2 * my_matrix将my_matrix的每个元素乘以2。
+
+作为卢卡斯影业新招聘的数据分析师，你的工作是找出每个地理区域有多少游客去看每部电影。你已经在 all_wars_matrix 中得到了总收入数字。假设一张票的价格是 5 美元。简单地将票房数字除以这个票价，就得到了游客的数量。
+
+```{r}
+# all_wars_matrix在你的工作空间里是可用的。
+all_wars_matrix
+
+# 估计游客人数
+visitors <- /5
+  
+# # 将估计值输出到控制台
+visitors
+```
+
+*矩阵的数学运算（2）*
+就像2*my_matrix将my_matrix中的每一个元素乘以2一样，my_matrix1*my_matrix2创建了一个矩阵，其中每个元素都是my_matrix1和my_matrix2中相应元素的乘积。
+
+你的老板卢卡斯在看了上一次练习的结果后，指出票价随着时间的推移而上涨。他要求根据你能在 ticket_prices_matrix 中找到的价格重新做分析。
+
+熟悉矩阵的朋友应该注意到，这不是标准的矩阵乘法，在R中应该使用%*%。
+
+```{r}
+# 创建ticket_prices_matrix。
+tiket_prices <- c(5.0,5.0,6.0,6.0,7.0,7.0,4.0,4.0,4.5,4.5,4.9,4.9)
+
+ticket_prices_matrix <- matrix(tiket_prices, nrow = 6, byrow = TRUE,
+                           dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jed","The Phantom Menac", "Attack of the Clones", "Revenge of the Sith"), c("Domestic", "International")))
+
+# 估计游客人数
+visitors <- all_wars_matrix/ticket_prices_matrix
+
+# 国内游客数量
+domestic_visitors <- visitors[,1]
+
+# 国内游客的平均人数
+mean(domestic_visitors)
+
+```
+
+*因素向量是什么，你为什么要使用它？*
+
+因素向量指的是一种用于存储分类变量的统计数据类型。分类变量和连续变量的区别在于，分类变量可以属于有限的几个类别。而连续变量则可以对应无限多的值。
+
+R知道它正在处理的是一个连续变量还是一个分类变量是很重要的，因为你将来要开发的统计模型会对这两种类型进行不同的处理。
+
+一个分类变量的好例子是性别。在许多情况下，你可以将性别类别限制为 "男性 "或 "女性"。
+```{r}
+# 给变量theory赋值
+theory <- "factors for categorical variables"
+```
+
+*因素向量是什么，你为什么要使用它？（2）*
+要在R中创建因素向量，你可以利用函数factor()。首先要做的是创建一个向量，这个向量包含了所有属于有限类别的观测值。例如，sex_vector包含5个不同个体的性别。
+
+sex_vector <- c("Male","Female","Female","Male","Male")
+很明显，这里有两类，"男性 "和 "女性"。
+
+函数factor()将把向量编码为因素向量。
+
+factor_sex_vector <- factor(sex_vector)
+
+```{r}
+# Sex vector
+sex_vector <- c("Male", "Female", "Female", "Male", "Male")
+
+# 将sex_vector变成因素向量
+factor_sex_vector <- factor()
+
+# 输出factor_sex_vector
+factor_sex_vector
+```
+*因素向量是什么，你为什么要使用它？（3）*
+分类变量有两种类型：无序分类变量和有序分类变量。
+
+无序分类变量是一个没有隐含顺序的分类变量。这意味着不可能说 "一个比另一个更有价值"。例如，考虑一下分类变量 animals_vector，其中有 "大象"、"长颈鹿"、"驴 "和 "马 "这几个类别。在这里，不可能说一个高于或低于另一个。
+
+相反，有序分类变量确实有一个自然的排序。例如考虑分类变量temperature_vector的类别。"低"，"中 "和 "高"。这里很明显，"中 "在 "低 "之上，"高 "在 "中 "之上。
+
+```{r}
+# Animals
+animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+factor_animals_vector <- factor()
+factor_animals_vector
+
+# Temperature
+temperature_vector <- c("High", "Low", "High","Low", "Medium")
+factor_temperature_vector <- factor(, order = , levels = c())
+factor_temperature_vector
+```
+*因素水平*
+当你第一次得到一个数据集时，你会经常注意到它包含有特定因素级别。然而，有时你会想改变这些级别的名称，以使其清晰。R允许你通过函数levels()来实现这一点。
+
+levels(factor_vector) <- c("name1", "name2",...)
+一个很好的说明是调查问卷提供给你的原始数据。每份问卷都有一个常见的问题，就是被调查者的性别。这里，为了简单起见，只记录了两个类别，"M "和 "F"。(对于调查数据，你通常需要更多的类别；无论哪种方式，你都要使用一个因子来存储分类数据。)
+
+survey_vector <- c("M", "F", "F", "M", "M")
+用 "M "和 "F "的缩写记录性别，如果你是用笔和纸收集数据，可能会很方便，但在分析数据时可能会造成混乱。这时，你往往会想把因子级别改为 "Male "和 "Female"，而不是 "M "和 "F"，以示清晰。
+
+注意：你分配水平的顺序很重要。如果你键入levels(factor_survey_vector)，你会看到它输出[1]"F""M"。如果你在创建向量时没有指定因子的级别，R会自动按字母顺序分配它们。为了正确地将 "F "映射为 "女性"，将 "M "映射为 "男性"，应该将级别设置为c("女性"，"男性")，顺序如下。
+
+```{r}
+# 建立factor_survey_vector
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- (survey_vector)
+levels(factor_survey_vector) 
+
+# 指定 factor_survey_vector的向量类别
+levels(factor_survey_vector) <- ("Female", "Male")
+levels(factor_survey_vector) 
+
+factor_survey_vector
+```
+*统计描述factor*
+完成本课程后，你最喜欢的R函数之一将是summary()。这将让你快速了解一个变量的内容。
+summary(my_var)
+回到我们的调查，你想知道在你的研究中，有多少 "男性"的回答，以及有多少 "女性"的回答。summary()函数可以给你这个问题的答案。
+
+```{r}
+# 用清晰的因素水平建立factor_survey_vector
+survey_vector <- c("M", "F", "F", "M", "M")
+factor_survey_vector <- (survey_vector)
+levels(factor_survey_vector) <- ("Female", "Male")
+factor_survey_vector
+
+# 生成survey_vector的统计摘要
+(survey_vector)
+
+# 生成 factor_survey_vector的统计摘要
+(factor_survey_vector)
+```
+
+*有序因素*
+
+由于 "Male "和 "Female "是无序的（或者说是名义上的）因素水平，R返回一个警告信息，告诉你大于操作符没有意义。如前所述，R对这类因子的水平附加了一个等值。
+
+但情况并非总是如此 有时，你也会处理一些确实在其类别之间有自然排序的因子。如果是这种情况，我们必须确保将这些信息传递给R......
+
+假设你正在领导一个由五个数据分析师组成的研究团队，你想评估他们的表现。要做到这一点，你可以跟踪他们的速度，将每个分析师评估为 "慢"、"中 "或 "快"，并将结果保存在speed_vector中。
+
+```{r}
+# 创建 speed_vector
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+```
+
+*有序因素(2)*
+
+speed_vector应该被转换为一个有序因子，因为它的类别有一个自然的排序。默认情况下，函数factor()将speed_vector转换为无序因素。要创建一个有序因素，你必须添加两个额外的参数：ordered 和 levels。
+
+factor(some_vector,
+       ordered = TRUE。
+       levels = c("lev1", "lev2" ...))
+      
+在函数factor()中，通过将参数ordered设置为TRUE，你表明因子是有序的。通过参数levels，你可以按照正确的顺序给出因子的值。
+
+```{r}
+# 创建 speed_vector
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+
+# 将 speed_vector 转化成有序因素向量
+factor_speed_vector <- factor(, order = , levels = c())
+
+# 输出 factor_speed_vector
+factor_speed_vector
+summary(factor_speed_vector)
+```
+*比较有序因素*
+
+今天工作不顺，"二号数据分析师 "走进你的办公室，开始抱怨"五号数据分析师"拖慢了整个项目的进度。由于你知道'二号数据分析师'有自作聪明的名声，你首先决定检查他的说法是否属实。
+
+事实上，factor_speed_vector现在是有序的，这使我们能够比较不同的元素（本例中的数据分析师）。你可以简单地通过使用运算符来做到这一点。
+
+```{r}
+# 创建factor_speed_vector
+speed_vector <- c("medium", "slow", "slow", "medium", "fast")
+factor_speed_vector <- factor(, ordered = , levels = c())
+
+# 第二名数据分析员的值
+da2 <- factor_speed_vector[]
+
+# 第五名数据分析员的值
+da5 <- factor_speed_vector[]
+
+# 数据分析师2比数据分析师5快吗？
+da2 > da5
+```
+什么data frame？
+
+你可能还记得在关于矩阵的章节中，你放在矩阵中的所有元素都应该是同一类型的。那时，你的关于星球大战的数据集只包含数字元素。
+
+然而，在做市场研究调查时，你经常会有这样的问题：
+
+"你结婚了吗?" 或者 "是/否 "的问题(逻辑)
+'你今年多大了？(数字)
+您对这个产品有什么看法？"或其他 "开放性 "问题（字符）。
+…
+受访者对上述问题的回答，是一个不同数据类型的数据集。你会经常发现自己在处理包含不同数据类型的数据集，而不是只有一种数据类型。
+
+一个数据框架将数据集的变量作为列，将观测值作为行。
+
+```{r}
+# 输出内置的 R data frame
+mtcars 
+```
+*观察你的数据集*
+在数据分析中，处理大型数据集并不罕见。当你处理（极度）大型数据集和数据框架时，作为数据分析师，你的首要任务是对其结构和主要元素形成清晰的理解。因此，只显示整个数据集的一小部分往往是有用的。
+
+那么在R中如何做到这一点呢？函数head()可以让你显示数据集的第一个观测值。同样，函数tail()也可以打印出数据集中的最后一个观测值。
+
+head()和tail()都会打印出最上面的一行，称为 "header"，其中包含了数据集中不同变量的名称。
+
+```{r}
+# Call head() on mtcars
+head()
+```
+*观察数据结构*
+
+另一个经常被用来快速了解数据的方法是函数str()。函数str()向你展示你的数据集的结构。对于一个data frame，它告诉你
+
+观测数据的总数（例如32种汽车类型）。
+变量总数（如11个汽车特征）。
+变量名称的完整列表（如mpg、cyl...）。
+每个变量的数据类型（如num）。
+第一个观测值
+应用str()函数通常会是您在接收新数据集时做的第一件事。这是在进入真正的分析之前对数据集进行更深入了解的好方法。
+
+```{r}
+# Investigate the structure of mtcars
+str()
+```
+*创建一个data frame*
+
+由于使用内置数据集连创建自己的数据集的一半乐趣都没有，所以本章的其余部分是基于你个人开发的数据集。
+
+作为第一个目标，你要构建一个数据集，描述太阳系中八颗行星的主要特征。
+
+行星的类型 (地行星或气态巨行星)
+行星的直径相对于地球的直径。
+行星相对于地球的太阳公转。
+行星是否有星环(TRUE或FALSE)。
+在做了一些高质量的研究之后，你有足够的信心来创建必要的向量：名称、类型、直径、自转和环；这些向量已经在编辑器中编好了。每一个向量中的第一个元素都对应着第一个观察结果。
+
+你可以用data.frame()函数构建一个data frame。作为参数，你传递了之前的向量：它们将成为你的data frame 的不同列。因为每一列都有相同的长度，所以你传递的向量也应该有相同的长度。但是不要忘记，它们有可能（也很可能）包含不同类型的数据。
+
+```{r}
+# Definition of vectors
+name <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+type <- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", 
+          "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant")
+diameter <- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883)
+rotation <- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67)
+rings <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+
+# Create a data frame from the vectors
+planets_df <- data.frame(, , , , )
+```
+
+*创建一个data frame（2）*
+planets_df应该有8个观测值和5个变量。它已经在工作区中提供了，所以你可以直接使用它
+
+```{r}
+# Check the structure of planets_df
+str()
+```
+*选择数据集要素*
+
+与向量和矩阵类似，您可以借助方括号[ ]从数据框中选择元素。通过使用逗号，你可以指出分别从行和列中选择什么。例如
+
+my_df[1,2] 选择my_df中第一行和第二列的值。
+my_df[1:3,2:4] 选择my_df中的第1、2、3行和第2、3、4列。
+有时你想选择一行或一列的所有元素。例如，my_df[1，]选择第一行的所有元素。现在让我们把这种技术应用在planets_df上
+
+```{r}
+# 上一个练习中的planets_df数据集已被预先加载。
+
+# 输出水星的直径（第1行，第3列）。
+planets_df[,]
+
+# 输出火星的数据（整个第四行）。
+planets_df[,]
+```
+*选择数据集要素（2）*
+不使用数字来选择数据集的元素，还可以使用变量名来选择数据集的列。
+
+假设你想选择类型列的前三个元素。一种方法是
+planets_df[1:3,2]
+这种方法的一个可能的缺点是，你必须知道（或查找）类型的列号，如果你有很多变量，这就很难了。通常情况下，只使用变量名会更容易。
+planets_df[1:3,"type"]
+
+```{r}
+# 上一次练习中的planets_df数据集已被预先加载。
+
+# Select first 5 values of diameter column
+planets_df[,]
+```
+*选择数据集要素（3）*
+你经常会想选择整个列，即数据集中的一个特定变量。例如，如果你想选择变量直径的所有元素，这两种方法都可以做到。
+planets_df[,3]
+planets_df[,"diameter"]
+不过，有一个捷径。如果你的列有名字，你可以使用$符号。
+planets_df$diameter
+
+```{r}
+# Select the rings variable from planets_df
+rings_vector <- 
+  
+# Print out rings_vector
+rings_vector
+```
+*选择数据集要素（4）*
+你可能还记得高中的时候，太阳系中有些行星有环，有些没有。遗憾的是，你想不起它们的名字。R能帮你解决吗？
+
+如果你在控制台输入 rings_vector，你会得到：
+
+[1] FALSE FALSE FALSE FALSE TRUE TRUE TRUE
+这意味着前四个观测点（或行星）没有环（FALSE），但其他四个有（TRUE）。然而，你并没有得到这些行星的名称、直径等的漂亮概览。让我们尝试使用 rings_vector 来选择这四颗有环的行星的数据。
+
+```{r}
+# Adapt the code to select all columns for planets with rings
+planets_df[, ]
+```
+*选择数据集要素（5）*
+那么在前面的练习中，你到底学到了什么？你从一个数据框架(planets_df)中根据某个条件是否为真(有环或无环)选择了一个子集，然后你成功地提取了所有相关数据。非常棒! 
+
+现在，让我们更上一层楼，使用函数subset()。
+
+subset(my_df, subset = some_condition)
+subset()的第一个参数指定了你想要子集的数据集。通过添加第二个参数，你给R提供了必要的信息和条件来选择正确的子集。
+
+下面的代码将给出与上一个练习中完全相同的结果，但这次，你不需要 rings_vector 了
+subset(planets_df, subset = rings)
+
+```{r}
+# Select planets with diameter < 1
+subset(planets_df, diameter < 1)
+```
+*排序 Sorting*
+
+制作和创造排名是人类最喜欢的事务之一。这些排名可以是有用的（世界上最好的大学），也可以是娱乐的（最有影响力的电影明星），也可以是毫无意义的（最好的007模样）。
+
+在数据分析中，你可以根据数据集中的某个变量对数据进行排序。在R中，借助于函数order()来实现。
+order()是一个函数，当它应用在一个变量上时，它可以给你每个元素的排序位置，比如说一个向量。
+
+a <- c(100, 10, 1000)
+order(a)
+[1] 2 1 3
+
+10是a中的第二个元素，是最小的元素，所以2在顺序(a)的输出中排在第一位。100，是a中的第一个元素，是第二个最小的元素，所以在order(a)的输出中，1排在第二位。
+
+这意味着我们可以使用order(a)的输出来重新洗牌a。
+
+a[order(a)]
+[1]   10  100 1000
+
+```{r}
+# Use order() to create positions
+positions <- order()
+
+# Use positions to sort planets_df
+planets_df[, ]
+```
+
